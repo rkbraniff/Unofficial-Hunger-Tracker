@@ -3,7 +3,7 @@ let contrastToggle = false;
 function toggleContrast() {
     contrastToggle = !contrastToggle;
     if (contrastToggle) {
-        document.body.classList += ` dark-theme`
+        document.body.classList.add(`dark-theme`)
     }
     else {
         document.body.classList.remove(`dark-theme`)
@@ -12,7 +12,7 @@ function toggleContrast() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
     const makeHungerRating = function (noOfBlood = 5) {
-        let rating = 0;
+        let rating = localStorage.getItem(`hungerRating`) ? parseInt(localStorage.getItem(`hungerRating`)) : 1;
         let bloodComponent;
 
         function changeHunger(newRating) {
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 newRating = 1
             }
             rating = newRating;
+            localStorage.setItem(`hungerRating`, rating);
         }
 
         function getBloodComponent() {
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 bloodComponent.addEventListener(`click`, onMouseClick);
                 bloodComponent.addEventListener(`keyup`, onKeyUp)
 
-                renderChanges(1)
+                renderChanges(rating)
             }
             return bloodComponent;
         }
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     const ratingModule = makeHungerRating();
     const bloodComponent = ratingModule.getBloodComponent();
-    const container = document.querySelector("ul");
+    const container = document.querySelector("#blood__container");
 
     const ratingText = document.querySelector(".hunger__level--description");
     if (container) {
@@ -157,8 +158,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function updateHungerText(hunger) {
         console.log(`Updating hunger text for rating: ${hunger}`); // Debugging log
-
-        ratingText.innerHTML = getRatingTextHTML(hunger);
+        if (ratingText) {
+            ratingText.innerHTML = getRatingTextHTML(hunger);
+        }
     }
 
 
@@ -185,7 +187,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
             return `<div class="hunger__level--description">“NO MORE WAITING! DO YOU HEAR ME? You think you can resist? I AM YOUR HUNGER! I AM YOUR TRUTH! Surrender to me—SATE ME NOW!”</div>`;
         }
     }
+
+    // Listen for changes to localStorage
+    window.addEventListener("storage", function (e) {
+        if (e.key === "hungerRating") {
+            const newRating = parseInt(e.newValue);
+            ratingModule.changeHunger(newRating);
+            renderChanges(newRating); // Update the UI with the new rating
+            ratingText.innerHTML = getRatingTextHTML(newRating); // Update the hunger text
+        }
+    });
 });
+
 
 
 
