@@ -4,8 +4,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Baskervville SC", sans-serif;
+  font-family: "Baskervville SC", Georgia, "Times New Roman", serif;
   background-color: rgb(240, 240, 240);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+.dark-theme * {
+  background-color: #2e0000;
+  color: rgba(120, 2, 199, 0.753);
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 .header__height {
@@ -49,12 +56,13 @@
 }
 
 .hunger__container {
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 
 #blood__container {
   display: flex;
@@ -69,8 +77,6 @@
 }
 
 .hunger__level--description {
-  margin: 12px 48px;
-  font-style: italic;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,9 +85,10 @@
   letter-spacing: 2px;
 }
 
-.dark-theme * {
-  background-color: #2e0000;
-  color: rgba(120, 2, 199, 0.753);
+.hunger__level--description, .beast__depiction {
+  font-style: italic;
+  margin: 12px 48px;
+
 }
 
 .fa-circle-half-stroke {
@@ -101,31 +108,46 @@
 }
 
 .blood {
-  filter: grayscale(80%);
-  background-image: url(./Images/droplet-solid.svg);
+  background-color: #2e0000;
+  clip-path: polygon(48% 0%, 36% 29%, 17% 50%, 14% 72%, 23% 88%, 34% 97%, 51% 100%, 68% 94%, 80% 85%, 86% 69%, 83% 50%, 73% 28%);
   display: inline-block;
-  height: 96px;
-  width: 72px;
+  height: 104px;
+  width: 96px;
   margin-left: 2px;
   transition: transform 300ms ease;
   margin: 12px;
+  overflow: hidden;
 }
 
 .dark-theme .blood {
-  background-color: hsla(0, 0%, 100%, 0);
+  background-color: #daa0a0;
+  
 }
 
 .blood:hover {
   transform: scale(1.2);
-  background-image: url(./Images/droplet-solid.svg);
+  background-color: #c20000; /* Same as focus for consistency */
 }
 
 .blood:focus {
   transform: scale(1.2);
-  background-color: #c2000000;
-  filter: grayscale(0%);
-  background-image: url(./Images/droplet-solid.svg);
+  background-color: #c20000;
+  box-shadow: 0 0 10px #c20000; /* Adds focus visibility */
+  outline: none; /* Remove default focus ring */
 }
+
+.dark-theme .blood {
+  background-color: #daa0a0;
+}
+
+.dark-theme .blood-filled {
+  background-color: #c20000; /* Ensure blood-filled color applies in dark mode */
+}
+
+.dark-theme .blood:hover, .dark-theme .blood:focus {
+  background-color: #c20000; /* Same color when focused or hovered */
+}
+
 
 .hunger-rating {
   cursor: pointer;
@@ -135,6 +157,6 @@
 
 .blood-filled {
   background-color: #c20000;
-  background-image: url(./Images/droplet-solid.svg);
 
 }
+
