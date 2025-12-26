@@ -174,3 +174,299 @@
 .increase__hunger:hover {
   background-color: #ff4d4d;
 }
+
+/* Map pages */
+body.map-page {
+  background-color: #1c1a18;
+  color: #e6dccb;
+}
+
+body.map-page * {
+  background-color: transparent;
+  color: inherit;
+}
+
+.map-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.map-kicker {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: #bfa78e;
+}
+
+.map-header h1 {
+  font-size: 42px;
+  margin-top: 8px;
+}
+
+.map-subtitle {
+  margin-top: 8px;
+  max-width: 520px;
+  color: #cbb9a5;
+  line-height: 1.5;
+}
+
+.map-tag {
+  padding: 10px 16px;
+  border: 1px solid rgba(230, 220, 203, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.map-frame {
+  border: 1px solid rgba(230, 220, 203, 0.2);
+  padding: 16px;
+  background: rgba(20, 18, 16, 0.7);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+}
+
+.map-canvas {
+  width: 100%;
+  height: auto;
+}
+
+.map-surface {
+  fill: #25211e;
+  filter: url(#paperTexture);
+}
+
+.map-landmarks .map-river {
+  fill: none;
+  stroke: rgba(120, 160, 170, 0.35);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.map-landmarks .map-highway {
+  fill: none;
+  stroke: rgba(200, 180, 150, 0.25);
+  stroke-width: 4;
+  stroke-dasharray: 12 10;
+}
+
+.map-occult circle,
+.map-occult path {
+  fill: none;
+  stroke: rgba(200, 140, 150, 0.3);
+  stroke-width: 2;
+}
+
+.domain-region {
+  fill: rgba(90, 60, 60, 0.4);
+  stroke: rgba(220, 200, 170, 0.35);
+  stroke-width: 2;
+}
+
+.domain text {
+  font-size: 18px;
+  text-anchor: middle;
+}
+
+.domain-caption {
+  font-size: 12px;
+  fill: #c0ae9b;
+}
+
+.domain-icon circle,
+.domain-icon rect,
+.domain-icon path {
+  fill: rgba(230, 200, 170, 0.9);
+  stroke: rgba(60, 30, 30, 0.8);
+  stroke-width: 2;
+}
+
+.domain-hollow .domain-line {
+  fill: none;
+  stroke: rgba(150, 120, 170, 0.7);
+  stroke-width: 4;
+  stroke-dasharray: 8 10;
+}
+
+.domain-free .domain-region {
+  fill: rgba(60, 60, 60, 0.2);
+  stroke: rgba(220, 200, 170, 0.3);
+  stroke-dasharray: 6 8;
+}
+
+.map-legend {
+  border: 1px solid rgba(230, 220, 203, 0.2);
+  padding: 20px;
+  background: rgba(30, 27, 24, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.map-legend h2,
+.map-legend h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.map-legend ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.legend-domain {
+  background: rgba(90, 60, 60, 0.6);
+  border: 1px solid rgba(220, 200, 170, 0.4);
+}
+
+.legend-boundary {
+  background: rgba(220, 200, 170, 0.2);
+  border: 1px dashed rgba(220, 200, 170, 0.6);
+}
+
+.legend-free {
+  background: rgba(60, 60, 60, 0.4);
+  border: 1px dashed rgba(220, 200, 170, 0.5);
+}
+
+.legend-hollow {
+  background: rgba(150, 120, 170, 0.5);
+  border: 1px solid rgba(150, 120, 170, 0.9);
+}
+
+.legend-note {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bfae9a;
+}
+
+.map-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.map-controls input {
+  margin-right: 8px;
+  accent-color: #c65858;
+}
+
+.story-overlay path,
+.story-overlay rect,
+.story-overlay circle,
+.story-overlay ellipse {
+  fill: none;
+  stroke-width: 3;
+}
+
+.layer-boundaries path {
+  stroke: rgba(200, 200, 220, 0.4);
+  stroke-dasharray: 6 8;
+}
+
+.layer-surveillance circle {
+  stroke: rgba(120, 180, 220, 0.5);
+  fill: rgba(120, 180, 220, 0.1);
+}
+
+.layer-feeding path {
+  stroke: rgba(220, 160, 120, 0.6);
+}
+
+.layer-pressure rect {
+  stroke: rgba(220, 90, 90, 0.6);
+  fill: rgba(220, 90, 90, 0.15);
+}
+
+.layer-elysium circle {
+  stroke: rgba(200, 200, 150, 0.8);
+  fill: rgba(200, 200, 150, 0.3);
+}
+
+.layer-corridors path {
+  stroke: rgba(150, 120, 200, 0.6);
+  stroke-dasharray: 10 6;
+}
+
+.layer-crossings path {
+  stroke: rgba(240, 200, 120, 0.8);
+  stroke-width: 5;
+}
+
+.layer-subterranean path {
+  stroke: rgba(150, 120, 170, 0.8);
+  stroke-dasharray: 8 8;
+}
+
+.layer-blood path {
+  stroke: rgba(180, 70, 90, 0.8);
+}
+
+.layer-dream ellipse {
+  stroke: rgba(140, 200, 190, 0.6);
+  fill: rgba(140, 200, 190, 0.2);
+}
+
+.layer-judicial rect {
+  stroke: rgba(200, 200, 200, 0.6);
+  fill: rgba(200, 200, 200, 0.1);
+}
+
+.layer-political path {
+  stroke: rgba(230, 190, 120, 0.7);
+  fill: rgba(230, 190, 120, 0.2);
+}
+
+.layer-occult circle {
+  stroke: rgba(170, 120, 210, 0.7);
+  fill: rgba(170, 120, 210, 0.2);
+}
+
+.layer-inquisition path {
+  stroke: rgba(240, 80, 80, 0.8);
+  stroke-width: 6;
+}
+
+.layer-hidden {
+  opacity: 0;
+}
+
+@media (max-width: 960px) {
+  .map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
