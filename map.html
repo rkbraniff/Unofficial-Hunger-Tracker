@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kansas City by Night: Player Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="map.js" defer></script>
+</head>
+<body class="map-page">
+    <main class="map-layout">
+        <header class="map-header">
+            <div>
+                <p class="map-kicker">Kansas City by Night</p>
+                <h1>Player Map</h1>
+                <p class="map-subtitle">Domains are approximate, political, and always contested.</p>
+            </div>
+            <div class="map-tag">Kindred Circulation Only</div>
+        </header>
+
+        <section class="map-grid">
+            <div class="map-frame">
+                <svg class="map-canvas" viewBox="0 0 1200 800" role="img" aria-label="Stylized Kansas City domain map">
+                    <defs>
+                        <filter id="paperTexture" x="-20%" y="-20%" width="140%" height="140%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="noise" />
+                            <feColorMatrix type="saturate" values="0.2" />
+                            <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+                        </filter>
+                    </defs>
+                    <rect class="map-surface" x="0" y="0" width="1200" height="800" rx="32" />
+
+                    <g class="map-landmarks">
+                        <path class="map-river" d="M120 90 C 220 160, 360 210, 520 230 C 700 260, 820 330, 980 420 C 1050 460, 1120 520, 1160 620" />
+                        <path class="map-river" d="M80 620 C 220 560, 360 520, 520 470 C 720 420, 920 360, 1120 280" />
+                        <path class="map-highway" d="M160 140 C 260 200, 340 260, 420 320 C 520 400, 640 470, 760 520 C 840 550, 940 610, 1060 700" />
+                        <path class="map-highway" d="M260 720 C 380 650, 500 590, 640 540 C 780 480, 900 420, 1040 300" />
+                    </g>
+
+                    <g class="map-occult">
+                        <circle cx="180" cy="160" r="40" />
+                        <circle cx="980" cy="610" r="50" />
+                        <path d="M600 120 L640 200 L560 200 Z" />
+                        <path d="M920 200 L980 260 L900 260 Z" />
+                    </g>
+
+                    <g class="domain domain-crown">
+                        <path class="domain-region" d="M520 210 C 620 200, 720 230, 760 300 C 800 360, 780 430, 700 460 C 620 490, 520 470, 470 400 C 430 340, 440 250, 520 210 Z" />
+                        <g class="domain-icon">
+                            <circle cx="620" cy="330" r="18" />
+                            <path d="M608 328 L620 310 L632 328 L640 322 L620 352 L600 322 Z" />
+                        </g>
+                        <text x="620" y="390">The Crown</text>
+                        <text x="620" y="415" class="domain-caption">Downtown / Power Core</text>
+                    </g>
+
+                    <g class="domain domain-iron">
+                        <path class="domain-region" d="M220 310 C 320 260, 400 250, 460 300 C 520 360, 500 430, 420 460 C 340 490, 240 470, 190 400 C 150 350, 160 330, 220 310 Z" />
+                        <g class="domain-icon">
+                            <rect x="310" y="360" width="24" height="24" />
+                            <path d="M322 340 L322 384 M308 352 L346 352" />
+                        </g>
+                        <text x="320" y="420">The Iron Cross</text>
+                        <text x="320" y="445" class="domain-caption">West Bottoms &amp; Stockyards</text>
+                    </g>
+
+                    <g class="domain domain-stained">
+                        <path class="domain-region" d="M470 430 C 520 390, 600 380, 660 410 C 720 440, 730 520, 660 560 C 590 600, 500 580, 450 520 C 420 480, 430 460, 470 430 Z" />
+                        <g class="domain-icon">
+                            <path d="M560 470 C 548 448, 570 430, 586 446 C 602 430, 624 448, 612 470 C 600 492, 586 512, 586 512 C 586 512, 572 492, 560 470 Z" />
+                        </g>
+                        <text x="570" y="540">The Stained Veil</text>
+                        <text x="570" y="565" class="domain-caption">Crossroads Arts District</text>
+                    </g>
+
+                    <g class="domain domain-veiled">
+                        <path class="domain-region" d="M760 420 C 840 380, 930 370, 1000 420 C 1070 470, 1080 550, 1000 600 C 920 650, 820 620, 760 560 C 720 520, 720 450, 760 420 Z" />
+                        <g class="domain-icon">
+                            <path d="M900 470 C 870 450, 840 460, 820 490 C 840 520, 870 530, 900 510 C 930 530, 960 520, 980 490 C 960 460, 930 450, 900 470 Z" />
+                        </g>
+                        <text x="900" y="560">The Veiled Gate</text>
+                        <text x="900" y="585" class="domain-caption">Westport / Plaza</text>
+                    </g>
+
+                    <g class="domain domain-crimson">
+                        <path class="domain-region" d="M660 120 C 760 90, 860 110, 930 170 C 980 220, 960 290, 880 320 C 800 350, 700 330, 640 270 C 590 220, 600 150, 660 120 Z" />
+                        <g class="domain-icon">
+                            <path d="M780 210 L800 180 L820 210 L840 180 L860 210 L820 250 Z" />
+                        </g>
+                        <text x="780" y="260">The Crimson Pillars</text>
+                        <text x="780" y="285" class="domain-caption">Historic Northeast / Courthouse</text>
+                    </g>
+
+                    <g class="domain domain-marrow">
+                        <path class="domain-region" d="M320 80 C 420 40, 540 50, 620 110 C 690 160, 690 230, 610 270 C 530 310, 430 300, 340 240 C 260 190, 250 120, 320 80 Z" />
+                        <g class="domain-icon">
+                            <path d="M460 150 C 444 132, 456 110, 480 110 C 504 110, 516 132, 500 150 C 516 168, 504 190, 480 190 C 456 190, 444 168, 460 150 Z" />
+                        </g>
+                        <text x="470" y="210">The Marrow Reach</text>
+                        <text x="470" y="235" class="domain-caption">Northland Suburbs</text>
+                    </g>
+
+                    <g class="domain domain-hollow">
+                        <path class="domain-line" d="M260 520 C 340 540, 460 560, 560 600 C 640 630, 720 660, 820 700" />
+                        <path class="domain-line" d="M360 420 C 440 460, 520 480, 620 500" />
+                        <text x="520" y="640">The Hollow Line</text>
+                        <text x="520" y="665" class="domain-caption">Abandoned rails &amp; subterranean</text>
+                    </g>
+
+                    <g class="domain domain-free">
+                        <path class="domain-region" d="M120 430 C 160 390, 230 380, 280 410 C 330 440, 340 520, 280 560 C 220 600, 140 590, 90 520 C 60 470, 80 450, 120 430 Z" />
+                        <path class="domain-region" d="M960 90 C 1040 70, 1100 100, 1140 160 C 1180 220, 1160 300, 1090 330 C 1020 360, 950 330, 920 280 C 890 230, 900 120, 960 90 Z" />
+                        <text x="200" y="520">Free Drift Zones</text>
+                        <text x="1020" y="250">Free Drift Zones</text>
+                    </g>
+                </svg>
+            </div>
+
+            <aside class="map-legend">
+                <h2>Legend / Key</h2>
+                <ul>
+                    <li><span class="legend-swatch legend-domain"></span> Domain territory</li>
+                    <li><span class="legend-swatch legend-boundary"></span> Approximate border</li>
+                    <li><span class="legend-swatch legend-free"></span> Free Drift Zones (unclaimed, dangerous)</li>
+                    <li><span class="legend-swatch legend-hollow"></span> The Hollow Line (subterranean routes)</li>
+                </ul>
+                <p class="legend-note">Borders are political, shifting, and never absolute. Treat every boundary as a rumor.</p>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>

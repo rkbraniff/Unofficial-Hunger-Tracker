@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kansas City by Night: Storyteller Overlay</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="map.js" defer></script>
+</head>
+<body class="map-page storyteller">
+    <main class="map-layout">
+        <header class="map-header">
+            <div>
+                <p class="map-kicker">Kansas City by Night</p>
+                <h1>Storyteller Overlay</h1>
+                <p class="map-subtitle">Operational layers for planning scenes, pressure, and movement.</p>
+            </div>
+            <div class="map-tag">Storyteller Eyes Only</div>
+        </header>
+
+        <section class="map-grid">
+            <div class="map-frame">
+                <svg class="map-canvas" viewBox="0 0 1200 800" role="img" aria-label="Storyteller overlay map">
+                    <defs>
+                        <filter id="paperTexture" x="-20%" y="-20%" width="140%" height="140%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="noise" />
+                            <feColorMatrix type="saturate" values="0.2" />
+                            <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+                        </filter>
+                    </defs>
+                    <rect class="map-surface" x="0" y="0" width="1200" height="800" rx="32" />
+
+                    <g class="map-landmarks">
+                        <path class="map-river" d="M120 90 C 220 160, 360 210, 520 230 C 700 260, 820 330, 980 420 C 1050 460, 1120 520, 1160 620" />
+                        <path class="map-river" d="M80 620 C 220 560, 360 520, 520 470 C 720 420, 920 360, 1120 280" />
+                        <path class="map-highway" d="M160 140 C 260 200, 340 260, 420 320 C 520 400, 640 470, 760 520 C 840 550, 940 610, 1060 700" />
+                        <path class="map-highway" d="M260 720 C 380 650, 500 590, 640 540 C 780 480, 900 420, 1040 300" />
+                    </g>
+
+                    <g class="story-overlay layer layer-boundaries" data-layer="boundaries">
+                        <path d="M300 120 C 460 80, 660 90, 780 160" />
+                        <path d="M180 280 C 320 260, 520 260, 700 320" />
+                        <path d="M220 520 C 360 500, 520 520, 720 580" />
+                        <path d="M720 80 C 880 130, 1000 220, 1080 340" />
+                    </g>
+
+                    <g class="story-overlay layer layer-surveillance" data-layer="surveillance">
+                        <circle cx="360" cy="240" r="90" />
+                        <circle cx="760" cy="360" r="110" />
+                        <circle cx="980" cy="520" r="70" />
+                    </g>
+
+                    <g class="story-overlay layer layer-feeding" data-layer="feeding">
+                        <path d="M220 650 C 340 600, 460 560, 600 520" />
+                        <path d="M620 520 C 760 480, 880 440, 1020 380" />
+                    </g>
+
+                    <g class="story-overlay layer layer-pressure" data-layer="pressure">
+                        <rect x="460" y="210" width="120" height="120" rx="12" />
+                        <rect x="820" y="160" width="140" height="120" rx="12" />
+                    </g>
+
+                    <g class="story-overlay layer layer-elysium" data-layer="elysium">
+                        <circle cx="620" cy="260" r="16" />
+                        <circle cx="920" cy="240" r="16" />
+                        <circle cx="520" cy="500" r="16" />
+                    </g>
+
+                    <g class="story-overlay layer layer-corridors" data-layer="corridors">
+                        <path d="M400 120 C 520 200, 640 240, 760 260" />
+                        <path d="M760 260 C 880 290, 980 340, 1080 420" />
+                        <path d="M280 420 C 360 470, 440 520, 520 560" />
+                    </g>
+
+                    <g class="story-overlay layer layer-crossings" data-layer="crossings">
+                        <path d="M480 340 L520 360" />
+                        <path d="M720 420 L760 440" />
+                        <path d="M880 500 L920 520" />
+                    </g>
+
+                    <g class="story-overlay layer layer-subterranean" data-layer="subterranean">
+                        <path d="M260 520 C 340 540, 460 560, 560 600 C 640 630, 720 660, 820 700" />
+                        <path d="M360 420 C 440 460, 520 480, 620 500" />
+                    </g>
+
+                    <g class="story-overlay layer layer-blood" data-layer="blood">
+                        <path d="M180 360 C 260 340, 360 340, 440 360" />
+                        <path d="M900 320 C 980 350, 1060 390, 1120 440" />
+                    </g>
+
+                    <g class="story-overlay layer layer-dream" data-layer="dream">
+                        <ellipse cx="300" cy="180" rx="90" ry="60" />
+                        <ellipse cx="860" cy="560" rx="110" ry="70" />
+                    </g>
+
+                    <g class="story-overlay layer layer-judicial" data-layer="judicial">
+                        <rect x="650" y="110" width="80" height="80" rx="10" />
+                        <rect x="1040" y="520" width="70" height="70" rx="10" />
+                    </g>
+
+                    <g class="story-overlay layer layer-political" data-layer="political">
+                        <path d="M520 120 L640 200 L520 280 L400 200 Z" />
+                    </g>
+
+                    <g class="story-overlay layer layer-occult" data-layer="occult">
+                        <circle cx="220" cy="520" r="40" />
+                        <circle cx="980" cy="160" r="40" />
+                    </g>
+
+                    <g class="story-overlay layer layer-inquisition" data-layer="inquisition">
+                        <path d="M900 640 L960 700" />
+                        <path d="M960 640 L900 700" />
+                    </g>
+                </svg>
+            </div>
+
+            <aside class="map-legend">
+                <h2>Overlay Controls</h2>
+                <div class="map-controls">
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="boundaries" checked> Neighborhood boundaries</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="surveillance" checked> Surveillance intensity</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="feeding" checked> Feeding density</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="pressure" checked> Political pressure</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="elysium" checked> Known Elysium zones</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="corridors" checked> Influence corridors</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="crossings" checked> High-risk crossings</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="subterranean" checked> Subterranean routes</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="blood" checked> Blood logistics routes</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="dream" checked> Dream-influence bleed zones</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="judicial" checked> Judicial/enforcement centers</label>
+                </div>
+                <h3>Optional Toggles</h3>
+                <div class="map-controls">
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="political" checked> Political control</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="occult" checked> Occult influence</label>
+                    <label><input class="layer-toggle" type="checkbox" data-layer-toggle="inquisition" checked> Inquisition heat</label>
+                </div>
+                <p class="legend-note">Use the overlays to track pressure points and contested crossings without exposing player-facing secrets.</p>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>
